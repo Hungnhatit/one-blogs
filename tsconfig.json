@@ -31,8 +31,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
+    ".next/types/**/*.ts",
+    "context/ThemeContext.jsx",
+    "components/themeToggle/ThemeToggle.tsx"
+, "providers/ThemeProvider.jsx"  ],
   "exclude": [
     "node_modules"
   ]
