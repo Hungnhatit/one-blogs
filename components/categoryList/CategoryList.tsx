@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./categoryList.module.css";
 import Image from 'next/image';
 import Link from 'next/link';
+import { cates } from './cate';
 
 const CategoryList = () => {
   return (
@@ -10,66 +11,18 @@ const CategoryList = () => {
         Popular Categories
       </h1>
       <div className={styles.categories}>
-        <Link href="/blog?cat=style" className={`${styles.category} ${styles.style}`}>
-          <Image
-            src='/assets/icons/footwear.png'
-            alt=''
-            width={32}
-            height={32}
-            className={styles.image}
-          />
-          Style
-        </Link>
-        <Link href="/blog?cat=style" className={`${styles.category} ${styles.fashion}`}>
-          <Image
-            src='/assets/icons/footwear.png'
-            alt=''
-            width={32}
-            height={32}
-            className={styles.image}
-          />
-          Style
-        </Link>
-        <Link href="/blog?cat=style" className={`${styles.category} ${styles.food}`}>
-          <Image
-            src='/assets/icons/footwear.png'
-            alt=''
-            width={32}
-            height={32}
-            className={styles.image}
-          />
-          Style
-        </Link>
-        <Link href="/blog?cat=style" className={`${styles.category} ${styles.travel}`}>
-          <Image
-            src='/assets/icons/footwear.png'
-            alt=''
-            width={32}
-            height={32}
-            className={styles.image}
-          />
-          Style
-        </Link>
-        <Link href="/blog?cat=style" className={`${styles.category} ${styles.culture}`}>
-          <Image
-            src='/assets/icons/footwear.png'
-            alt=''
-            width={32}
-            height={32}
-            className={styles.image}
-          />
-          Style
-        </Link>
-        <Link href="/blog?cat=style" className={`${styles.category} ${styles.coding}`}>
-          <Image
-            src='/assets/icons/footwear.png'
-            alt=''
-            width={32}
-            height={32}
-            className={styles.image}
-          />
-          Style
-        </Link>
+        {cates.map((cate, index) => (
+          <Link key={index} href="/blog?cat=style" className={`${styles.category} ${cate.bgColor}  hover:bg-slate-300 transition-all`}>
+            <Image
+              src={`${cate.imgSrc}`}
+              alt=''
+              width={32}
+              height={32}
+              className={styles.image}
+            />
+            {cate.name}
+          </Link>
+        ))}
       </div>
     </div>
   )
