@@ -16,7 +16,7 @@ const NavBar = () => {
         <Image src="/assets/imgs/facebook.png" alt='facebook-icon' width={24} height={24}></Image>
         <Image src="/assets/imgs/instagram.png" alt='instagram-icon' width={24} height={24}></Image>
         <Image src="/assets/imgs/threads.png" alt='threads-icon' width={24} height={24}></Image>
-        <Image src="/assets/imgs/tik-tok.png" alt='tiktok-icon' width={24} height={24}></Image>
+        <Image src="/assets/imgs/tiktok.png" alt='tiktok-icon' width={24} height={24}></Image>
       </div>
 
       <div className={styles.logo}>

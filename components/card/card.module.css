@@ -32,7 +32,7 @@
 }
 
 .desc {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--softTextColor);
 }
@@ -43,3 +43,10 @@
   padding: 2px 0;
 }
 
+
+/* Responsive */
+@media screen and (max-width: 1280px) {
+  .imgContainer {
+    display: none;
+  }
+}

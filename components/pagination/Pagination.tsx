@@ -5,7 +5,8 @@ const Pagination = () => {
 
   return (
     <div className={styles.container}>
-      Pagination
+      <button className={`${styles.button} text-[14px] px-[12px] py-[10px]`}>Previous</button>
+      <button className={`${styles.button} text-[14px] px-[12px] py-[10px]`}>Next</button>
     </div>
   )
 }

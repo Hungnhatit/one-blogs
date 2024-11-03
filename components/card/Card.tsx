@@ -9,7 +9,8 @@ const Card = () => {
       <div className={styles.imgContainer}>
         <Image
           src='/assets/imgs/landscape.jpg'
-          alt='' fill
+          alt=''
+          fill
           className={styles.image} />
       </div>
       <div className={styles.textContainer}>
