@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './blog.module.css';
-import CardList from '@/components/cardList/CardList';
-import Menu from '@/components/menu/Menu';
+import CardList from '@/src/components/cardList/CardList';
+import Menu from '@/src/components/menu/Menu';
 
 
 const Blog = () => {

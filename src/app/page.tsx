@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from './homepage.module.css';
-import CardList from "@/components/cardList/CardList";
+import Menu from "@/components/menu/Menu";
 import Featured from "@/components/featured/Featured";
 import CategoryList from "@/components/categoryList/CategoryList";
-import Menu from "@/components/menu/Menu";
+import CardList from "@/components/cardList/CardList";
+
 
 export default function Home() {
   return (
