@@ -27,6 +27,7 @@ const NavBar = () => {
         <ThemeToggle />
         <Link href="/" className={styles.link}>Home Page</Link>
         <Link href="/" className={styles.link}>Contact</Link>
+        <Link href="/create" className={styles.link}>Create</Link>
         <Link href="/" className={styles.link}>About</Link>
         <AuthLinks />
       </div>
