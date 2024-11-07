@@ -10,10 +10,24 @@ import { FaPhotoVideo } from 'react-icons/fa';
 // Text editor
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const CreatePost = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
+  const { data, status } = useSession();
+  const router = useRouter();
+
+  console.log(data, status);
+
+  if (status === 'loading') {
+    return <div className={styles.loading}>Loading...</div>
+  }
+
+  if (status === 'authenticated') {
+    router.push('/');
+  }
 
   return (
     <div className={styles.container}>

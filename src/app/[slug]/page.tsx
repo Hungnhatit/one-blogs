@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './singlePage.module.css';
 import Image from 'next/image';
-import Menu from '@/src/components/menu/Menu';
-import Comment from '@/src/components/comment/Comment';
+import Comment from '@/components/comment/Comment';
+import Menu from '@/components/menu/Menu';
 
 const SinglePage = () => {
   return (
