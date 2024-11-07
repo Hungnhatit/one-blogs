@@ -6,8 +6,8 @@ import Card from '../card/Card';
 
 const base_url = 'http://localhost:3000';
 
-const getData = async (page) => {
-  const res = await fetch(`${base_url}/api/posts?page=${page}`, {
+const getData = async (page, cat) => {
+  const res = await fetch(`${base_url}/api/posts?page=${page}&cat=${cat || ''}`, {
     cache: 'no-store',
   });
   if (!res.ok) {
@@ -17,8 +17,8 @@ const getData = async (page) => {
 }
 
 // page được truyền từ layout vào
-const CardList = async ({ page }) => {
-  const { posts, count } = await getData(page);
+const CardList = async ({ page, cat }) => {
+  const { posts, count } = await getData(page, cat);
   const POST_PER_PAGE = 2;
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;

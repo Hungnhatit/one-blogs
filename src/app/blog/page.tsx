@@ -1,16 +1,21 @@
 import React from 'react';
 import styles from './blog.module.css';
-import CardList from '@/src/components/cardList/CardList';
-import Menu from '@/src/components/menu/Menu';
+import CardList from '@/components/cardList/CardList';
+import Menu from '@/components/menu/Menu';
 
 
-const Blog = () => {
+const Blog = ({ searchParams }: any) => {
+  const page = parseInt(searchParams.page) || 1;
+  const { cat } = searchParams;
+
+
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Styles blog</h1>
+      <h1 className={styles.title}>{cat}</h1>
       <div className={styles.content}>
-        <CardList/>
-        <Menu/>
+        <CardList page={page} cat={cat} />
+        <Menu />
       </div>
     </div>
   )
