@@ -9,20 +9,25 @@
 
 .write {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .input {
-  padding: 20px;
   width: 100%;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  padding: 20px;
 }
 
 
-.button {
-  padding: 16px 20px;
-  background-color: teal;
+.button {  
+  width: fit-content;
+  align-self: flex-end;
+  bottom: 0;
+  right: 0;
+  padding: 8px 20px;
+  background-color: #0768EA;
   color: white;
   font-weight: bold;
   border: none;
