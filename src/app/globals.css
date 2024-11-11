@@ -15,6 +15,7 @@
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #2D3748;
+  --contentBg: #F2F4F7;
 }
 
 /* Dark mode */
@@ -22,7 +23,8 @@
   --bg: #0f172a;
   --textColor: #ddd;
   --softBg: #1f273a;
-  --softTextColor: #a6a6a6;
+  --softTextColor: #FFFFFF;
+  --contentBg: #334054;
 }
 
 * {
