@@ -3,8 +3,10 @@
 }
 
 .title {
+  font-size: 20px;
+  font-weight: 700;
   color: var(--softTextColor);
-  margin-bottom: 30px;
+  margin-bottom: 8px;
 }
 
 .write {
@@ -17,37 +19,29 @@
   width: 100%;
   border: 1px solid #E5E5E5;
   border-radius: 4px;
-  padding: 20px;
+  padding: 16px;
 }
 
 
-.button {  
+.button {
   width: fit-content;
   align-self: flex-end;
   bottom: 0;
   right: 0;
   padding: 8px 20px;
-  background-color: #0768EA;
   color: white;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 4px;
 }
 
 .comments {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .comment {
-  margin-bottom: 50px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 }
 
 .image {
@@ -55,10 +49,10 @@
   object-fit: cover;
 }
 
-.userInfo {
+.commentInfo {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
   color: var(--softTextColor);
 }
 
@@ -70,8 +64,12 @@
   font-size: 14px;
 }
 
-
 .desc {
-  font-size: 18px;
+  width: 100%;
+  font-size: 16px;
   font-weight: 300;
+}
+
+.commentContent {
+  background-color: var(--contentBg);
 }

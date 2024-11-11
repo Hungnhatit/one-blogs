@@ -13,7 +13,9 @@ const ThemeToggle = () => {
       className={`${styles.container}`}
       onClick={toggle}
       style={
-        theme === "dark" ? { backgroundColor: "white" } : { backgroundColor: "#0f172a" }
+        theme === "dark"
+          ? { backgroundColor: "white" }
+          : { backgroundColor: "#0f172a" }
       }
     >
       <Image src="/assets/imgs/sunny.png" alt='sunny' width={20} height={20} />
