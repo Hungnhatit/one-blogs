@@ -36,7 +36,7 @@
     "src/context/ThemeContext.jsx",
     "src/components/themeToggle/ThemeToggle.tsx",
     "src/providers/ThemeProvider.jsx"
-, "src/app/page.jsx", "src/components/cardList/CardList.jsx", "src/components/card/Card.jsx", "src/app/post/[slug]/page.tsx"  ],
+, "src/app/page.jsx", "src/components/cardList/CardList.jsx", "src/components/card/Card.jsx", "src/app/post/[slug]/page.jsx", "src/components/comment/Comment.jsx", "src/app/create/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

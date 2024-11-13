@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './singlePage.module.css';
 import Comment from '@/components/comment/Comment';
 import Menu from '@/components/menu/Menu';
@@ -7,7 +7,13 @@ import { CiBookmark } from 'react-icons/ci';
 
 const base_url = 'http://localhost:3000/api';
 
-const getPost = async (slug: number) => {
+const parseHTML = (htmlString) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+  return doc.body.textContent || '';
+}
+
+const getPost = async (slug) => {
   const res = await fetch(`${base_url}/posts/${slug}`, {
     cache: 'no-store'
   });
@@ -17,10 +23,9 @@ const getPost = async (slug: number) => {
   }
 
   return res.json();
-
 }
 
-const SinglePage = async ({ params }: any) => {
+const SinglePage = async ({ params }) => {
   const { slug } = params;
   const post = await getPost(slug);
 
@@ -64,8 +69,9 @@ const SinglePage = async ({ params }: any) => {
 
         <div className={styles.post}>
           <div
-            className={styles.desc}>
-            (This is post description) {post?.desc}
+            className={styles.desc}
+            dangerouslySetInnerHTML={{ __html: post?.desc }}
+          >
           </div>
           <div className={styles.comment}>
             <Comment postSlug={slug} />

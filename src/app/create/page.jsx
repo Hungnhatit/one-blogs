@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './create.module.css';
 
 import Image from 'next/image';
@@ -14,31 +14,55 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const CreatePost = () => {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
   const { data, status } = useSession();
   const router = useRouter();
-
-  console.log(data, status);
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  const [value, setValue] = useState('');
+  const [file, setFile] = useState(null);
 
   if (status === 'loading') {
     return <div className={styles.loading}>Loading...</div>
   }
 
-  if (status === 'authenticated') {
+  if (status === 'unauthenticated') {
     router.push('/');
   }
+  
+  const handleSubmit = async () => {
+    await fetch('/api/posts', {
+      method: 'post',
+      body: JSON.stringify({
+        title, 
+        desc: value,
+        slug: title,
+        catSlug: 'style'
+      })
+    });
+  };
+  
 
   return (
     <div className={styles.container}>
-      <input type="text" placeholder='Your post title...' className={styles.input}/>
+      <input
+        type="text"
+        placeholder='Your post title...'
+        className={styles.input}
+        onChange={(e) => setTitle(e.target.value)}
+      />
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
           <CiCirclePlus size={20} />
         </button>
         {open && (
           <div className={styles.add}>
+            <input
+              type="file"
+              id='image'
+              onChange={(e) => setFile(e.target.files[0])}
+            />
             <button className={styles.addButton}>
+              <label htmlFor="image"></label>
               <CiImageOn size={20} />
             </button>
             <button className={styles.addButton}>
@@ -52,11 +76,11 @@ const CreatePost = () => {
         <ReactQuill
           theme='bubble'
           value={value}
-          onChange={setValue}
+          onChange={(content)=>setValue(content)}
           placeholder={`Tell your story...`}
           className={`${styles.textArea} border`}></ReactQuill>
       </div>
-      <button className={styles.publish}>Post</button>
+      <button className={styles.publish} onClick={handleSubmit}>Post</button>
     </div>
   )
 }
