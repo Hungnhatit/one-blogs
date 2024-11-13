@@ -4,9 +4,6 @@ import { NextResponse } from "next/server";
 // Get single post
 export const GET = async (req, { params }) => {
   const { slug } = params;
-
-
-
   try {
     const post = await prisma.post.findUnique({
       where: { slug },
@@ -22,6 +19,6 @@ export const GET = async (req, { params }) => {
         { message: 'Something went wrong. Please try again!' },
         { status: 500 }
       )
-    )
+    );
   }
 }

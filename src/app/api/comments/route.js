@@ -29,9 +29,8 @@ export const GET = async (req) => {
 }
 
 // Create a comment
-
-export const POST = async () => {
-  const session = getAuthSession();
+export const POST = async (req) => {
+  const session = await getAuthSession();
 
   if (!session) {
     return new NextResponse(
@@ -43,7 +42,8 @@ export const POST = async () => {
   }
 
   try {
-    const body = await prisma.comment.create({
+    const body = await req.json();
+    const comment = await prisma.comment.create({
       data: {
         ...body, userEmail: session.user.email
       },

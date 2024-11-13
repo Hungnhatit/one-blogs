@@ -1,6 +1,8 @@
+import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
+// Get posts for home page
 export const GET = async (req) => {
   const POST_PER_PAGE = 2;
   const { searchParams } = new URL(req.url);
@@ -29,6 +31,43 @@ export const GET = async (req) => {
     return new NextResponse(
       JSON.stringify(
         { message: 'Something went wrong. Please try again!' },
+        { status: 500 }
+      )
+    )
+  }
+}
+
+// Create a post
+export const POST = async (req) => {
+  const session = await getAuthSession();
+  if (!session) {
+    return new NextResponse(
+      JSON.stringify(
+        { message: 'Not Authenticated' },
+        { status: 401 }
+      )
+    );
+  }
+
+  try {
+    const body = await req.json();
+    const post = await prisma.post.create({
+      data: {
+        ...body,
+        userEmail: session.user.email
+      }
+    });
+    return new NextResponse(
+      JSON.stringify(
+        post,
+        { status: 200 }
+      )
+    );
+  } catch (error) {
+    console.log(error);
+    return new NextResponse(
+      JSON.stringify(
+        { message: 'Failed when create a post. Please try again!' },
         { status: 500 }
       )
     )
